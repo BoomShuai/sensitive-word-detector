@@ -14,7 +14,7 @@ python3 scripts/privacy_check.py --history
 
 另以 `python3 -S -m sensitive_detector scan --input examples/demo.txt` 确认默认命令不需要第三方 site-packages。安装后的独立环境从源码目录之外验证了 CLI，以及安装包中词库与 Web 资源的可用性和真实 HTTP 响应。
 
-CI 在 Linux、Windows 的 Python 3.9 和 3.12 上运行默认测试、前端逻辑测试、历史隐私扫描和安装检查。各次运行结果以仓库 Actions 页面为准。
+CI 在 Linux、Windows 的 Python 3.9 和 3.12 上运行默认测试、前端逻辑测试、历史隐私扫描和安装检查。Python 3.9 的 Linux 项使用 Ubuntu 22.04，避免新 Ubuntu 镜像缺少对应解释器构建。各次运行结果以仓库 Actions 页面为准。
 
 ## 浏览器验收
 
