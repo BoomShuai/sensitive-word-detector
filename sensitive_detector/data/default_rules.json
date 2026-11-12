@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "words": [
+    {"id": "demo-word", "text": "示例敏感词", "category": "演示词", "ignore_separators": true}
+  ],
+  "quotes": [
+    {"id": "quote-1", "text": "绿水青山就是金山银山", "anchors": ["绿水青山", "金山银山"]},
+    {"id": "quote-2", "text": "纸上得来终觉浅绝知此事要躬行", "anchors": ["纸上得来", "躬行"]},
+    {"id": "quote-3", "text": "谦受益满招损", "anchors": ["谦受益", "满招损"]}
+  ]
+}

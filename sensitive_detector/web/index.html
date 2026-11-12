@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>文本筛查工作台 · Sensitive Detector</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="文本筛查工作台首页"><span class="mark">文</span><span>文本筛查<span class="brand-sub">SENSITIVE DETECTOR</span></span></a>
+      <div class="side-label">本地研究工具</div>
+      <a class="nav active" href="#workspace"><span>01</span> 检测工作台</a>
+      <a class="nav" href="#dictionary"><span>02</span> 词库与引用</a>
+      <a class="nav" href="#guide"><span>03</span> 使用说明</a>
+      <div class="side-note"><span class="status-dot"></span> 文本留在本机<p>无云端分析 · 无访问日志<br>无自动保存 · 无浏览器持久化</p></div>
+      <div class="side-bottom">独立系统 / v1.0.0<br>规则可解释，结果可复核。</div>
+    </aside>
+    <main>
+      <header class="topbar"><span>WORKSPACE / 文本检查</span><span class="chip" id="connection">正在连接本地服务</span></header>
+      <section class="hero" id="workspace"><div class="eyebrow">LOCAL TEXT REVIEW</div><h1>让每一处命中，<br><span>都有迹可循。</span></h1><p>从自定义敏感词到引用差错，集中检查、逐条复核。<br>分析在本机完成，你决定何时导出。</p></section>
+      <div class="metrics" aria-label="检测统计"><div><span>本次文本</span><strong id="total">0</strong></div><div><span>建议复核</span><strong id="review">0</strong></div><div><span>引用命中</span><strong id="quoted">0</strong></div><div><span>未命中</span><strong id="unmatched">0</strong></div></div>
+      <section class="workspace-grid">
+        <div class="card editor"><div class="card-heading"><h2>待检测文本</h2><span class="small">每行一条 · 最多 100 条</span></div>
+          <label class="sr-only" for="input">待检测文本，每行一条</label><textarea id="input" placeholder="粘贴文本，或载入演示样例…" spellcheck="false"></textarea>
+          <div class="editor-footer"><span class="small" id="counter">0 字符</span><div class="utility"><button id="demo" class="text-button">载入演示</button><label class="text-button file-button">导入 TXT<input id="file" type="file" accept=".txt,text/plain"></label><button id="clear" class="text-button">清空</button></div></div>
+          <button id="analyze" class="primary">开始检测 <span>↗</span></button><p class="hint">每条最多 8000 字符，每批总长最多 32000；单个句段最多 256 字符。</p>
+        </div>
+        <div class="card results"><div class="card-heading"><h2>检测结果</h2><button id="export" class="text-button" disabled>导出 JSON ↓</button></div><div id="message" role="status" aria-live="polite"></div><div id="results"><div class="empty"><div class="empty-icon">⌕</div><h3>等待一段文字</h3><p>载入演示或输入文本后开始检测。<br>每条结果都会列出命中规则和参考文本。</p></div></div></div>
+      </section>
+      <section class="card dictionary" id="dictionary"><div class="card-heading"><div><h2>你的规则，你来定义</h2><p class="small">JSON 词库修改仅作用于本次请求，不写入磁盘。</p></div><button id="reset-rules" class="text-button">恢复启动词库</button></div><label for="rules" class="small">词库 JSON（words 为敏感词；quotes 为规范引用与锚词）</label><textarea id="rules" spellcheck="false" aria-label="词库 JSON"></textarea></section>
+      <section class="guide" id="guide"><div><h2>如何理解结果</h2><p><span class="badge warn">建议复核</span> 命中了敏感词，或引用存在疑似差错。</p><p><span class="badge quote">引用命中</span> 命中了规范引用或上下文规则，仍需人工判断。</p><p><span class="badge neutral">未命中</span> 当前规则没有发现命中，不代表内容一定合规。</p></div><div><h2>关于这份演示</h2><p>内置词库只含演示词与公开短句，不是一份完整的通用敏感词词库。</p><p>完全同义改写可能被规则漏检。可选语义模式需要自行准备本地模型，并可能增加误报。</p><p>导出结果包含输入原文，分享前请检查内容。</p></div></section>
+      <footer>LOCAL FIRST. REVIEW ALWAYS.<span>文本筛查工作台 · v1.0.0</span></footer>
+    </main>
+  </div>
+</body>
+</html>

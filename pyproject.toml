@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sensitive-word-detector-local"
+version = "1.0.0"
+description = "Offline Chinese keyword screening and quotation consistency review"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+semantic = ["numpy>=1.24,<3", "sentence-transformers>=3,<6"]
+
+[project.scripts]
+sensitive-detector = "sensitive_detector.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["sensitive_detector*"]
+
+[tool.setuptools.package-data]
+sensitive_detector = ["data/*.json", "web/*.html", "web/*.js", "web/*.css"]
